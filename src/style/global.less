@@ -1,0 +1,21 @@
+.globalScrollbar {
+  overflow: auto;
+  &::-webkit-scrollbar {
+    width: 3px;
+    border-radius: 1.5px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 1.5px;
+    background: #dce3e8;
+    background-image: -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      color-stop(0.2, #59b7ea),
+      color-stop(0.7, #7ab7f1),
+      color-stop(1, #495fed)
+    );
+    cursor: pointer;
+  }
+}

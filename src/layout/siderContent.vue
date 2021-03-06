@@ -1,7 +1,9 @@
 <template>
-  <div class="siderContent globalScrollbar">
+  <div class="siderContent ">
     <div class="logo">
-      <a-avatar :size="36" shape="square" style="backgroundColor:#87d068">logo</a-avatar>
+      <hover-rotate>
+        <a-avatar :size="64" shape="circle" style="backgroundColor:#87d068">logo</a-avatar>
+      </hover-rotate>
       Nice Admin
     </div>
     <a-menu
@@ -12,11 +14,15 @@
       :default-selected-keys="[]"
       @select="select"
       @openChange="openChange"
+      class="globalScrollbar-Y"
     >
       <template v-for="item in menuList">
         <a-menu-item v-if="!item.children" :key="item.key">
           <a-icon :type="item.icon" />
-          <span>{{ item.title }}</span>
+          <!-- <span>{{ item.title }}</span> -->
+          <a-badge :dot="!item.show">
+            {{ item.title }}
+          </a-badge>
         </a-menu-item>
         <sub-menu v-else :key="item.key" :menu-info="item" />
       </template>
@@ -27,10 +33,12 @@
 <script>
 import subMenu from './subMenu'
 import { mapGetters } from 'vuex'
+import HoverRotate from '../components/global/hoverRotate.vue'
 export default {
   name: 'SiderContent',
   components: {
-    subMenu
+    subMenu,
+    HoverRotate
   },
   computed: {
     ...mapGetters(['menuList', 'menuOpenKeys', 'menuSelectedKeys'])
@@ -48,7 +56,7 @@ export default {
 
 <style scoped lang="less">
 .siderContent {
-  max-height: 100vh;
+  height: 100vh;
   padding: 24px 0px;
   overflow: auto;
   display: flex;
@@ -65,5 +73,8 @@ export default {
     font-weight: 600;
     font-size: 18px;
   }
+}
+.ant-menu-inline {
+  border: none;
 }
 </style>

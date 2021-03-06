@@ -9,10 +9,20 @@ export function upload(data) {
   })
 }
 
-/** 上传 */
+/** 下载 */
 export function downloadFile(params) {
   return request.download({
     url: '/downloadFile',
     params
+  })
+}
+
+/** 验证码 */
+
+export function getSvgCode(data) {
+  return request({
+    url: '/svgCode',
+    method: 'get',
+    data
   })
 }

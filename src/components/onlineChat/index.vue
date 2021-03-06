@@ -10,7 +10,7 @@
         设置
       </span>
     </div>
-    <div class="content globalScrollbar">
+    <div class="content globalScrollbar-Y">
       <chat-message
         v-for="item in messageList"
         v-bind="item"

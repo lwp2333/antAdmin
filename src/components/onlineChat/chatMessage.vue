@@ -74,6 +74,9 @@ export default {
     margin-bottom: 2px;
   }
   .content {
+    display: flex;
+    justify-items: center;
+    align-items: center;
     .message {
       max-width: 252px;
       margin: 0px 12px;

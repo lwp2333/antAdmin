@@ -1,13 +1,7 @@
-const path = require('path')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
 // 是否为生产环境
 const prod = process.env.NODE_ENV === 'production'
-
-// 资源加载路径
-const resolve = dir => {
-  return path.join(__dirname, dir)
-}
 
 // cdn链接
 const cdn = {
@@ -61,11 +55,6 @@ module.exports = {
     })
   },
   configureWebpack: config => {
-    config.resolve = {
-      alias: {
-        '@': resolve('src')
-      }
-    }
     // 分析压缩代码
     if (prod) {
       config.plugins.push(
